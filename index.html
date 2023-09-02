@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css"
+        integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    .custom-box {
+        width: 100vw;
+        /* 100% of the viewport width */
+        height: 50vh;
+        /* 50% of the viewport height */
+    }
+
+    .bgcolor {
+        background-color: rgb(4, 3, 45);
+    }
+
+    .bgcolor1 {
+        background-color: rgb(43, 132, 234);
+    }
+
+    .bgcolor2 {
+        background-color: rgb(24, 28, 46);
+    }
+
+    /* li::before{
+        list-style-type:square;
+    } */
+    .ImgMoving{
+        animation: companies 3s infinite linear ;
+    }
+    @keyframes companies{
+        0%{
+            top:0;
+        }
+        100%{
+            top:-50%;
+        }
+    }
+</style>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="bgcolor">
+        <div class="relative w-[1080px] mx-auto flex items-center justify-between">
+            <a href="/" class="cursor-pointer py-7 pr-7">
+                <img src="./pic/logo1.png" width="125px" height="30px">
+            </a>
+
+            <div class="Pay_box_1 ">
+                <div
+                    class="Pay_box_2 text-white  hover:text-blue-400 cursor-pointer group transition-all duration-100 relative">
+                    <a href="#">Payments</a>
+                    <div class="Pay_box_2 bg-blue-400 hidden bottom-0 w-full h-1 group-hover:block  mt-2"></div>
+                </div>
+
+            </div>
+            <div
+                class="Pay_box_2 text-white  hover:text-blue-400 cursor-pointer group transition-all duration-100 relative">
+                <a href="#">Banking</a>
+                <div class="Pay_box_2 bg-blue-400 hidden bottom-0 w-full h-1 group-hover:block  mt-2"></div>
+            </div>
+            <div
+                class="Pay_box_2 text-white  hover:text-blue-400 cursor-pointer group transition-all duration-100 relative">
+                <a href="#">Credit</a>
+                <div class="Pay_box_2 bg-blue-400 hidden bottom-0 w-full h-1 group-hover:block  mt-2"></div>
+            </div>
+            <div
+                class="Pay_box_2 text-white  hover:text-blue-400 cursor-pointer group transition-all duration-100 relative">
+                <a href="#">Payroll</a>
+                <div class="Pay_box_2 bg-blue-400 hidden bottom-0 w-full h-1 group-hover:block  mt-2"></div>
+            </div>
+            <div
+                class="Pay_box_2 text-white  hover:text-blue-400 cursor-pointer group transition-all duration-100 relative">
+                <a href="#">Resources</a>
+                <div class="Pay_box_2 bg-blue-400 hidden bottom-0 w-full h-1 group-hover:block  mt-2"></div>
+            </div>
+            <div
+                class="Pay_box_2 text-white  hover:text-blue-400 cursor-pointer group transition-all duration-100 relative">
+                <a href="#">Support</a>
+                <div class="Pay_box_2 bg-blue-400 hidden bottom-0 w-full h-1 group-hover:block  mt-2"></div>
+            </div>
+            <div
+                class="Pay_box_2 text-white  hover:text-blue-400 cursor-pointer group transition-all duration-100 relative">
+                <a href="#">Payments</a>
+                <div class="Pay_box_2 bg-blue-400 hidden bottom-0 w-full h-1 group-hover:block  mt-2"></div>
+            </div>
+
+            <a href="">
+                <img class="w-9 h-5" src="./pic/india_logo.png" alt="">
+            </a>
+            <button class="bg-transparent border border-blue-400 px-4 py-2 text-white font-semibold" width="90px">Log
+                In</button>
+            <div><button class="bg-transparent border border-blue-400 px-4 py-2 text-blue-400 bg-white font-semibold"
+                    width="150px">Sign Up</button>
+            </div>
+
+        </div>
+
+
+    </nav>
+    <!-- hero section -->
+    <section>
+        <div class="  px-2 w-full h-[500px] bgcolor flex justify-center items-center space-x-4">
+            <div class="right-box  px-2 w-[320px] h-[350px] flex  items-center flex-col justify-evenly ">
+                <div class="mr-auto">
+                    <h1 class="text-2xl font-bold text-white mb-4">Power Your Finance ,<br>grow your bussiness</h1>
+                    <div class="bg-green-500 w-4 h-1 mb-4 border px-2">
+                    </div>
+                </div>
+
+                <div class="mr-auto">
+                    <p class="text-sm   text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+                        voluptas
+                        perferendis at nemo ad nostrum. Voluptatum natus dolores tempore dolorem.</p>
+                </div>
+                <button class="mr-auto px-2 bgcolor1 text-white w-[120px] h-[37px] rounded-md font-bold">Sign Up
+                    Now</button>
+            </div>
+            <div class="left-box  px-2 w-[550px] h-[400px]">
+                <div class="100"><img src="./pic/home-desktop.4a9233fc.jpg"></div>
+            </div>
+        </div>
+
+    </section>
+    <!-- hero section below img -->
+    <section>
+        <div class="select-none">
+            <img class="h-[100px] w-full" src="./pic/logo2.png" alt="">
+        </div>
+        <section>
+            <!-- Accept payment page -->
+            <section class="">
+                <div class=" w-full h-[500px] flex justify-center items-center flex-col ">
+                    <div class=" px-2 flex justify-center flex-col items-center ">
+                        <h1 class="text-2xl font-bold">Accept Payments With Rozoepay Suite</h1>
+                        <div class=" w-14 h-2 px-2 mt-3 bg-green-400"></div>
+                    </div>
+
+                    <div class=" flex justify-center items-center mt-10 w-[1000px] h-[600px] ">
+                        <div class="w-[500px] h-[400px]  px-2 flex flex-col items-center ">
+                            <div class=" w-[400px] h-[90px] mt-9 mr-auto">
+                                <h1 class="text-2xl font-bold ">Supercharge your bussiness with the all powerful <span
+                                        class="text-blue-500">Payment gateway</span></h1>
+                            </div>
+                            <div class=" w-[400px] h-[150px] mt-9 mr-auto  ">
+                                <ul class="space-y-2">
+                                    <li><span>100+ Payment Method</span></li>
+                                    <li><span>Industry Leading Success relative</span></li>
+                                    <li><span>Superior Checkout Exprience </span></li>
+                                    <li><span>Easy to Integrate</span></li>
+                                    <li><span>Instant Settlements from day 1</span>
+                                    </li>
+                                    <li><span>In-depth Reporting and Insights</span></li>
+                                </ul>
+                            </div>
+                            <div class="flex mr-auto justify-between mt-14 ">
+                                <button class="bgcolor1 w-[120px] h-[37px] mr-4 rounded-md text-white font-bold">Sign Up
+                                    Now</button>
+                                <button class="w-[120px] h-[37px] rounded-md font-bold text-blue-500">Know More</button>
+                            </div>
+                        </div>
+                        <div class="  w-[400px] h-[400px] px-2 mx-4 ">
+                            <img class="w-[100%] h-[100%]" src="./pic/payment-suite.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- cards section  -->
+                <div class="class= w-full h-[600px] flex justify-center items-center">
+                    <div class="w-[1000px] h-[500px]   flex justify-evenly items-center flex-col">
+                        <div class="flex items-center  mt-5 justify-evenly gap-10 w-full">
+                            <div
+                                class="w-[250px] h-[175px]  flex flex-col items-center justify-evenly group transition-all duration-200 cursor-pointer">
+                                <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                                <div class="flex items-center w-full h-11 "><button
+                                        class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                        More</button>
+                                    <img src="./pic/light_bar.png" class="hidden group-hover:block">
+                                </div>
+                            </div>
+                            <div
+                                class="w-[250px] h-[175px]  flex flex-col items-center justify-evenly group transition-all duration-200 cursor-pointer">
+                                <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                                <div class="flex items-center w-full h-11 "><button
+                                        class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                        More</button>
+                                    <img src="./pic/light_bar.png" class="hidden group-hover:block">
+                                </div>
+                            </div>
+                            <div
+                                class="w-[250px] h-[175px]  flex flex-col items-center justify-evenly group transition-all duration-200 cursor-pointer">
+                                <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                                <div class="flex items-center w-full h-11 "><button
+                                        class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                        More</button>
+                                    <img src="./pic/light_bar.png" class="hidden group-hover:block">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="flex items-center   mt-5 justify-evenly gap-10 w-full">
+                            <div
+                                class="w-[250px] h-[175px]  flex flex-col items-center justify-evenly group transition-all duration-200 cursor-pointer">
+                                <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                                <div class="flex items-center w-full h-11 "><button
+                                        class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                        More</button>
+                                    <img src="./pic/light_bar.png" class="hidden group-hover:block">
+                                </div>
+                            </div>
+                            <div
+                                class="w-[250px] h-[175px]  flex flex-col items-center justify-evenly group transition-all duration-200 cursor-pointer">
+                                <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                                <div class="flex items-center w-full h-11 "><button
+                                        class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                        More</button>
+                                    <img src="./pic/light_bar.png" class="hidden group-hover:block">
+                                </div>
+                            </div>
+                            <div
+                                class="w-[250px] h-[175px]  flex flex-col items-center justify-evenly group transition-all duration-200 cursor-pointer">
+                                <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                                <div class="flex items-center w-full h-11 "><button
+                                        class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                        More</button>
+                                    <img src="./pic/light_bar.png" class="hidden group-hover:block">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+            </section>
+            <!-- img_after_payment_cards -->
+            <section>
+                <div>
+                    <img src="./pic/img_after_payment_cards.png" alt="">
+                </div>
+            </section>
+            <section>
+
+                <div
+                    class="big_sub_upper_div w-full flex flex-col justify-center items-center bgcolor2">
+
+                    <div class="heading_1  flex flex-col justify-center items-center ">
+                        <h1 class="text-2xl font-bold text-white">Explore RazorpayX powered Business Banking</h1>
+                        <div class=" w-14 h-2 px-2 mt-3 bg-green-400"></div>
+                    </div>
+
+
+
+                    <div
+                        class="two_box_div w-[1050px] h-[500px]  flex  justify-center items-center mt-8">
+
+                        <div class="box1 w-[500px] h-[400px] ">
+                            <div class="">
+                                <h1 class="text-2xl font-bold text-white">Manage your company’s finances and supercharge
+                                    your business banking with</h1>
+                                <div class="flex w-52"><img src="./pic/logo1.png" class="w-40 object-contain">
+                                    <img src="./pic/x2-removebg-preview.png" alt="" class="w-14 object-contain -mx-5">
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <ul class="text-white">
+                                    <li>Open a fully digital current account</li>
+                                    <li>Automate payables & compliment payments</li>
+                                    <li>Simplify and track spends with Corporate cards</li>
+                                    <li>View financial insights at a glance</li>
+                                </ul>
+                            </div>
+                            <div class="flex mt-20">
+                                <div>
+                                    <div class="flex flex-row items-center"><button
+                                            class="relative bg-blue-500 flex items-center justify-start text-white py-[14px] px-[18px] md:pr-[90px] rounded-md font-bold">Sign
+                                            Up</button>
+                                            <div class=" w-12 h-[70px] bg-green-400 absolute mx-24 skew-x-[20deg]">
+                                            </div>
+                                    </div>
+                                    
+                                </div>
+                                <button class="w-[120px] h-[37px] rounded-md font-bold text-white">Know More</button>
+                            </div>
+                        </div>
+                        <div class="box2 w-[600px] h-[500px]  ">
+                            <img src="./pic/payment_machine_pic.png" alt="" class="w-[500px] h-[500px]">
+                        </div>
+
+                    </div>
+                    <div class="flex items-center  mt-5 justify-evenly gap-10 w-[1050px] text-white h-[300px] ">
+                        <div
+                            class="w-[300px] h-[175px]  flex flex-col items-center justify-evenly group cursor-pointer  rounded-md hover:shadow-xl">
+                            <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                            <div class="flex items-center w-full h-11 "><button
+                                    class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                    More</button>
+                                <img src="./pic/light_bar.png" class="hidden group-hover:block -mx-2">
+                            </div>
+                        </div>
+                        <div
+                            class="w-[300px] h-[175px]  flex flex-col items-center justify-evenly group transition-all duration-200 cursor-pointer hover:shadow-xl">
+                            <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                            <div class="flex items-center w-full h-11 "><button
+                                    class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                    More</button>
+                                <img src="./pic/light_bar.png" class="hidden group-hover:block -mx-2">
+                            </div>
+                        </div>
+                        <div
+                            class="w-[300px] h-[175px]  flex flex-col items-center justify-evenly group transition-all duration-200 cursor-pointer hover:shadow-xl">
+                            <h1 class="text-xl font-bold mr-auto">Payment Links</h1>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, neque.</p>
+
+                            <div class="flex items-center w-full h-11 "><button
+                                    class="mr-auto bgcolor1 font-bold w-[100px] h-[30px] rounded-md">Know
+                                    More</button>
+                                <img src="./pic/light_bar.png" class="hidden group-hover:block -mx-2">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="border flex items-center justify-center
+                    mb-36 gap-y-6 p-8 rounded md">
+                        <p class="text-white font-serif text-xl">Check out the live demo to learn how RazorpayX works.
+                            <span class="font-bold"> 
+                                No sign-up required!
+                            </span>
+                        </p>
+                        <div class="flex flex-row items-center mx-5"><button
+                            class="relative bg-blue-500 flex items-center justify-start text-white py-[20px] px-[30px]   h-6 w-[230px]  rounded-md font-bold">checkout the demo
+                            </button>
+                            <div class=" w-10 h-[70px] bg-green-400 absolute m-44 skew-x-[20deg]">
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-[#f5f8fe] pt-40 pb-12 -mt-[120px] ">
+                <div class="w-11/12 max-w-[1080px] mx-auto relative flex "> 
+                    <div class="flex flex-col justify-center max-w-[calc(100%-500px)]">
+                        <h1 class="font-serif font-bold text-2xl text-blue-900 ">
+                            Join the 50,00,000 businesses using Razorpay
+                        </h1>
+                        <div class="bg-green-500 w-4 h-1 mb-4 border px-2 mt-3">
+
+                        </div>
+                        <p class="font-serif mt-10 ">
+                            We make it easier for you to focus on building great products while we work on simplifying your payments. Become one of us by joining thousands of our happy users and simplify the online payment experience for your customers.
+                        </p>
+                        <p class="font-serif mt-10">
+                            Focus on your business while we handle the complexities of payments for you.
+                        </p>
+                    </div>
+                    <div class="h-[500px] w-[500px] relative overflow-y-hidden flex">
+                        <div class=" absolute w-full h-[150px] top-0 z-10" style="background: linear-gradient(180deg,#f4f8ff,#fff0);"></div>
+                        <img src="./pic/companies_name.png" 
+                        width="500px" class="absolute h-auto ImgMoving">
+                        
+                        <div class=" absolute w-full h-[150px] bottom-0 z-10" style="background: linear-gradient(0,#f4f8ff,#fff0);"></div>
+                    </div>
+                </div>
+            </section>
+</body>
+
+</html>
+</body>
+</html>
