@@ -389,3 +389,116 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+            function buildTree(
+  records: RecordSnapshot[],
+  maxLevels: number,
+  filterId: string,
+  filterName: string,
+  strategyTypeKey: number
+): { roots: TreeNode[]; totalStrategies: number } {
+
+  const map = new Map<string, TreeNode>();
+  
+  // Store ALL strategies per path — no overwrites
+  const leafStrategiesMap = new Map<string, { strategyName: string; strategyId: string }[]>();
+
+  for (const rec of records) {
+    if (filterId && rec.id !== filterId) continue;
+
+    if (strategyTypeKey > 0) {
+      const typeKeyVal = Number(rec.values["STRATEGY_TYPE_KEY"] ?? 0);
+      if (typeKeyVal !== strategyTypeKey) continue;
+    }
+
+    if (filterName) {
+      const path = String(rec.values["PATH"] ?? "");
+      const level1Val = path.split("|||")[0]?.trim() ?? "";
+      if (level1Val.toLowerCase() !== filterName.toLowerCase()) continue;
+    }
+
+    const strategyName = String(rec.values["STRATEGY_NAME"] ?? "").trim();
+    const strategyId   = String(rec.values["STRATEGY_ID"]   ?? "").trim();
+    const path         = String(rec.values["PATH"]         ?? "").trim();
+
+    if (!path) continue;
+
+    // Build folder nodes from PATH
+    const segments = path.split("|||");
+    let parentPath = "";
+
+    for (let i = 0; i < segments.length; i++) {
+      const val = segments[i].trim();
+      if (!val) continue;
+
+      const currentPath = parentPath ? `${parentPath}|||${val}` : val;
+
+      if (!map.has(currentPath)) {
+        map.set(currentPath, { label: val, path: currentPath, children: [] });
+      }
+
+      parentPath = currentPath;
+    }
+
+    // Collect all strategies at this path
+    if (parentPath) {
+      const existing = leafStrategiesMap.get(parentPath);
+      if (existing) {
+        existing.push({ strategyName, strategyId });
+      } else {
+        leafStrategiesMap.set(parentPath, [{ strategyName, strategyId }]);
+      }
+    }
+  }
+
+  // Assemble parent → child relationships
+  const roots: TreeNode[] = [];
+  map.forEach((node) => {
+    const sep = node.path.lastIndexOf("|||");
+    if (sep === -1) roots.push(node);
+    else map.get(node.path.substring(0, sep))?.children.push(node);
+  });
+
+  // Count total strategies
+  let totalStrategies = 0;
+  leafStrategiesMap.forEach((strategies) => {
+    totalStrategies += strategies.length;
+  });
+
+  // [OPTION B] EXPLODE: Create individual child leaf for EACH strategy
+  leafStrategiesMap.forEach((strategies, path) => {
+    const node = map.get(path);
+    if (!node) return;
+
+    if (strategies.length === 1) {
+      // Single strategy — attach directly
+      node.strategyName = strategies[0].strategyName;
+      node.strategyId   = strategies[0].strategyId;
+    } else {
+      // Multiple strategies — parent becomes folder, children are leaves
+      node.strategyName = undefined;
+      node.strategyId   = undefined;
+
+      strategies.forEach((s, idx) => {
+        const childPath = `${path}|||__STRAT__${idx}__${s.strategyId}`;
+        const childNode: TreeNode = {
+          label: s.strategyName,
+          path: childPath,
+          children: [],
+          strategyName: s.strategyName,
+          strategyId: s.strategyId,
+        };
+        map.set(childPath, childNode);
+        node.children.push(childNode);
+      });
+    }
+  });
+
+  return { roots, totalStrategies };
+}
