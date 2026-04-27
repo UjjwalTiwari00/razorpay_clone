@@ -1,3 +1,4 @@
+<>
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import * as React from "react";
 import { createRoot } from "react-dom/client";
@@ -160,10 +161,9 @@ export class HierarchyTree
     this.root.unmount();
   }
 }
+</>
 
-
-
-
+<>
 function buildTree(
   records: RecordSnapshot[],
   maxLevels: number,
@@ -173,9 +173,9 @@ function buildTree(
 ): TreeNode[] {
 
   const map = new Map<string, TreeNode>();
+  const leafDataMap = new Map<string, { strategyName: string; strategyId: string }>();
 
   for (const rec of records) {
-    // ── Filters ──
     if (filterId && rec.id !== filterId) continue;
 
     if (strategyTypeKey > 0) {
@@ -184,17 +184,18 @@ function buildTree(
     }
 
     if (filterName) {
-      const level1Val = String(rec.values["PATH"] ?? "").split("|||")[0]?.trim();
-      if (level1Val?.toLowerCase() !== filterName.toLowerCase()) continue;
+      const path = String(rec.values["PATH"] ?? "");
+      const level1Val = path.split("|||")[0]?.trim() ?? "";
+      if (level1Val.toLowerCase() !== filterName.toLowerCase()) continue;
     }
 
     const strategyName = String(rec.values["STRATEGY_NAME"] ?? "").trim();
-    const strategyId   = String(rec.values["STRATEGY_ID"] ?? "").trim();
-    const path         = String(rec.values["PATH"] ?? "").trim();
+    const strategyId   = String(rec.values["STRATEGY_ID"]   ?? "").trim();
+    const path         = String(rec.values["PATH"]         ?? "").trim();
 
     if (!path) continue;
 
-    // ── Build nodes from pre-built path ──
+    // ── Build nodes from pre-built PATH ──
     const segments = path.split("|||");
     let parentPath = "";
 
@@ -211,26 +212,29 @@ function buildTree(
       parentPath = currentPath;
     }
 
-    // ── Attach strategy to the LAST segment node ──
+     ── Attach strategy to last segment ──
     if (parentPath) {
-      const leafNode = map.get(parentPath);
-      if (leafNode) {
-        leafNode.strategyName = strategyName;
-        leafNode.strategyId = strategyId;
-      }
+      leafDataMap.set(parentPath, { strategyName, strategyId });
     }
   }
 
-  // ── Assemble parent → child relationships ──
+  // Assemble parent → child
   const roots: TreeNode[] = [];
   map.forEach((node) => {
     const sep = node.path.lastIndexOf("|||");
-    if (sep === -1) {
-      roots.push(node);
-    } else {
-      map.get(node.path.substring(0, sep))?.children.push(node);
+    if (sep === -1) roots.push(node);
+    else map.get(node.path.substring(0, sep))?.children.push(node);
+  });
+
+  // Attach metadata by exact path
+  leafDataMap.forEach((data, path) => {
+    const node = map.get(path);
+    if (node) {
+      node.strategyName = data.strategyName;
+      node.strategyId   = data.strategyId;
     }
   });
 
   return roots;
 }
+</>
